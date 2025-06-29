@@ -1,66 +1,107 @@
 ---
-import '../styles/global.css';
-import Layout from '../layouts/Layout.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+
 const pageTitle = "Pablo Quirilao";
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
+    <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-<Layout title="Portafolio | Pablo Quirilao">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <section class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white px-4">
-    <div class="max-w-3xl">
-      <h1 class="text-4xl md:text-6xl font-bold mb-6">Hola, soy Pablo Quirilao</h1>
-      <p class="text-lg md:text-xl mb-8">
-        Ingeniero en Informática enfocado en automatización, pruebas de performance y desarrollo de soluciones eficientes.
-      </p>
-      <a href="#proyectos" class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full transition duration-300">
-        Ver Proyectos
-      </a>
-    </div>
-  </section>
+  <Layout title="Portafolio | Pablo Quirilao">
+    <Header />
+    <section
+      class="min-h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-slate-900 to-slate-800 text-white px-4"
+    >
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Hola, soy Pablo Quirilao
+        </h1>
+        <p class="text-lg md:text-xl mb-8">
+          Ingeniero en Informática enfocado en automatización, pruebas de
+          performance y desarrollo de soluciones eficientes.
+        </p>
+        <a
+          href="#proyectos"
+          class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full transition duration-300"
+        >
+          Ver Proyectos
+        </a>
+      </div>
+    </section>
 
-  <section id="sobre-mi" class="py-16 bg-white text-slate-800 px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6">Sobre mí</h2>
-      <p class="text-lg leading-relaxed">
-        Tengo experiencia en pruebas funcionales y no funcionales, diseño de scripts en Python y automatización de reportes. Me interesa la innovación continua y he liderado mejoras significativas en herramientas de performance.
-      </p>
-    </div>
-  </section>
+    <section id="sobre-mi" class="py-16 bg-white text-slate-800 px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Sobre mí</h2>
+        <p class="text-lg leading-relaxed">
+          Tengo experiencia en pruebas funcionales y no funcionales, diseño de
+          scripts en Python y automatización de reportes. Me interesa la
+          innovación continua y he liderado mejoras significativas en
+          herramientas de performance.
+        </p>
+      </div>
+    </section>
 
-  <section id="proyectos" class="py-16 bg-gray-100 px-4">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold mb-10 text-slate-800">Proyectos destacados</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Proyecto 1 -->
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-2">Generador de archivos .lt para LoadTest</h3>
-          <p class="text-sm text-slate-600">Script en Python que automatiza la creación de configuraciones de carga para múltiples equipos.</p>
-        </div>
+    <section id="proyectos" class="py-16 bg-gray-100 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-10 text-slate-800">
+          Proyectos destacados
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Proyecto 1 -->
+          <div
+            class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              Generador de archivos .lt para LoadTest
+            </h3>
+            <p class="text-sm text-slate-600">
+              Script en Python que automatiza la creación de configuraciones de
+              carga para múltiples equipos.
+            </p>
+          </div>
 
-        <!-- Proyecto 2 -->
-        <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold mb-2">Conversor de reportes LoadTest a PNG</h3>
-          <p class="text-sm text-slate-600">Transforma reportes en HTML a PNG con branding corporativo para una mejor presentación en Confluence.</p>
+          <!-- Proyecto 2 -->
+          <div
+            class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              Conversor de reportes LoadTest a PNG
+            </h3>
+            <p class="text-sm text-slate-600">
+              Transforma reportes en HTML a PNG con branding corporativo para
+              una mejor presentación en Confluence.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contacto" class="py-16 bg-slate-900 text-white px-4">
-    <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">¿Trabajamos juntos?</h2>
-      <p class="mb-6">Estoy abierto a colaborar en proyectos de tecnología, automatización o desarrollo de herramientas personalizadas.</p>
-      <a href="mailto:tu.correo@ejemplo.com" class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full transition duration-300">
-        Escríbeme
-      </a>
-    </div>
-  </section>
-</Layout>
+    <section id="contacto" class="py-16 bg-slate-900 text-white px-4">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">¿Trabajamos juntos?</h2>
+        <p class="mb-6">
+          Estoy abierto a colaborar en proyectos de tecnología, automatización o
+          desarrollo de herramientas personalizadas.
+        </p>
+        <a
+          href="mailto:tu.correo@ejemplo.com"
+          class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full transition duration-300"
+        >
+          Escríbeme
+        </a>
+        <Footer />
+        <script>
+         import "../scripts/menu.js";
+        </script>
+      </div>
+    </section>
+  </Layout>
+</html>
