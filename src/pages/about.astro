@@ -1,15 +1,12 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
-const pageTitle = "About Me";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Sobre mi";
 const identity = {
     firstName: "Pablo",
     country: "Chile",
     occupation: "Engineer",
     hobbies: ["photography", "Mountainbike", "programming"],
 };
-
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Python"];
 const happy = false;
 const finished = false;
@@ -20,16 +17,9 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>{pageTitle}</title>
-    </head>
+<BaseLayout pageTitle={pageTitle}>
     <body>
-        <Header />
-        <h1>{pageTitle}</h1>
-        <style define:vars={{ skillColor, fontWeight, textCase }}>
+        <style is:global define:vars={{ skillColor, fontWeight, textCase }}>
             h1 {
                 color: teal;
                 font-size: 4rem;
@@ -41,7 +31,6 @@ const textCase = "uppercase";
             }
         </style>
         <h2>... and my new Astro site!</h2>
-
         <p>
             I am working through Astro's introductory tutorial. This is the
             second page on my website, and it's the first one I built myself!
@@ -84,9 +73,5 @@ const textCase = "uppercase";
                 <p>My goal is not 3 days.</p>
             )
         }
-        <Footer />
-        <script>
-            import "../scripts/menu.js";
-        </script>
     </body>
-</html>
+</BaseLayout>
