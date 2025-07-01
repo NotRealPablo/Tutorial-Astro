@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "Home | Pablo Quirilao";
+import Greeting from '../components/Greeting';
+const pageTitle = "Pablo Quirilao Pailaya";
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>Subtitulo basado en astro.props</h2>
+  <h2>ingeniero en informática</h2>
+  <Greeting client:load messages={["Hej! Tack för ditt besök!", "Hallo!, danke für Ihren Besuch!", "Hola!, gracias por tu visita!", "Olá! Obrigado pela sua visita!"]} />
 </BaseLayout>
