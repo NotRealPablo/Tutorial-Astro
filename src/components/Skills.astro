@@ -1,0 +1,14 @@
+---
+const habilidades = [
+  "Performance Testing", "Automation", "Python", "JavaScript", "Astro", "Tailwind CSS", "APIs", "Git", "Jenkins", "Docker"
+];
+---
+
+<section class="my-8">
+  <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-3 tracking-wide">Habilidades</h3>
+  <div class="flex flex-wrap gap-3">
+    {habilidades.map(h => (
+      <span class="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm font-medium shadow-sm">{h}</span>
+    ))}
+  </div>
+</section>

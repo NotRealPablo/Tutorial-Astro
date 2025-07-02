@@ -1,0 +1,55 @@
+---
+const nombre = "Pablo Quirilao";
+const profesion = "Ingeniero en Informática | Ingeniero de Performance";
+const resumen = "Especialista en performance, automatización, APIs y mejora continua para empresas tecnológicas y startups. Trabajo bajo metodologías ágiles, con foco en calidad y optimización de procesos.";
+const redes = [
+  { icon: "linkedin", url: "https://linkedin.com/in/tuusuario" },
+  { icon: "github", url: "https://github.com/tuusuario" },
+  { icon: "mail", url: "mailto:tu@email.com" },
+  { icon: "cv", url: "/cv.pdf" }
+];
+---
+
+<div class="flex flex-col sm:flex-row gap-8 items-start">
+  <!-- Foto/Avatar placeholder -->
+  <div class="min-w-[120px] min-h-[120px] rounded-2xl bg-gray-200 dark:bg-gray-700 flex items-center justify-center shadow-inner text-gray-400 text-4xl font-bold animate-pulse select-none">
+    Foto
+  </div>
+  <div class="bg-white/80 dark:bg-gray-800/90 p-6 rounded-2xl shadow">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">{nombre}</h1>
+    <h2 class="text-xl text-blue-700 dark:text-blue-400 font-semibold mb-3">{profesion}</h2>
+    <p class="text-gray-700 dark:text-gray-200 mb-5">{resumen}</p>
+    <div class="flex gap-3 mt-2">
+      {redes.map(r => {
+        if (r.icon === "linkedin") {
+          return (
+            <a href={r.url} target="_blank" aria-label="LinkedIn" class="text-blue-700 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-200 transition">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.271c-.966 0-1.75-.804-1.75-1.729s.784-1.729 1.75-1.729c.967 0 1.75.804 1.75 1.729s-.783 1.729-1.75 1.729zm15.5 11.271h-3v-5.604c0-1.338-.027-3.065-1.868-3.065-1.87 0-2.156 1.459-2.156 2.968v5.701h-3v-10h2.885v1.367h.041c.402-.762 1.384-1.566 2.848-1.566 3.045 0 3.607 2.006 3.607 4.617v5.582z"/></svg>
+            </a>
+          );
+        }
+        if (r.icon === "github") {
+          return (
+            <a href={r.url} target="_blank" aria-label="GitHub" class="text-gray-800 dark:text-gray-100 hover:text-gray-900 dark:hover:text-gray-400 transition">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.415-4.033-1.415-.546-1.385-1.333-1.754-1.333-1.754-1.087-.744.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.419-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.312.469-2.381 1.236-3.221-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.5 11.5 0 013.003-.404c1.018.005 2.045.138 3.003.404 2.292-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.119 3.176.77.84 1.235 1.909 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          );
+        }
+        if (r.icon === "mail") {
+          return (
+            <a href={r.url} aria-label="Email" class="text-red-600 hover:text-red-400 transition">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v.01L12 13 20 6.01V6H4zm16 2.24l-6.76 5.67a1 1 0 01-1.48 0L4 8.24V18h16V8.24z"/></svg>
+            </a>
+          );
+        }
+        if (r.icon === "cv") {
+          return (
+            <a href={r.url} download aria-label="Descargar CV" class="text-green-700 hover:text-green-400 transition">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 16.5l4-4h-3V3h-2v9.5H8l4 4z"/><path d="M20 18v2H4v-2H2v2c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-2h-2z"/></svg>
+            </a>
+          );
+        }
+      })}
+    </div>
+  </div>
+</div>
