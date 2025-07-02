@@ -1,18 +1,128 @@
 ---
-import Hamburger from './Hamburger.astro';
-import Navigation from './Navigation.astro';
-import ThemeIcon from './ThemeIcon.astro';
+const navLinks = [
+  { name: "Inicio", href: "/" },
+  { name: "Sobre mí", href: "/about" },
+  { name: "Proyectos", href: "/#proyectos" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contacto", href: "/#contacto" },
+];
 ---
 
-<header class="fixed top-0 left-0 w-full bg-white/90 shadow z-50 backdrop-blur-sm ">
-  <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between ">
-    <div class="flex items-center gap-4">
-      <Hamburger />
-      <a href="/" class="text-xl font-bold tracking-tight text-gray-900 hover:text-blue-600 transition-colors">Pablo Quirilao</a>
+<header class="bg-white dark:bg-gray-900 shadow fixed top-0 left-0 w-full z-50">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 lg:px-8" aria-label="Global">
+    <!-- Branding/logo -->
+    <div class="flex flex-1">
+      <a href="/" class="flex items-center gap-2 font-bold text-xl text-gray-900 dark:text-gray-100 hover:text-blue-700 dark:hover:text-blue-400 transition">
+        <img class="h-8 w-8 bg-white rounded dark:bg-gray-900" src="/favicon.svg" alt="Logo Pablo" />
+        Pablo Quirilao
+      </a>
     </div>
-    <div class="flex items-center gap-4">
-      <Navigation />
-      <ThemeIcon />
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex gap-8 items-center">
+      {navLinks.map(link => (
+        <a href={link.href} class="text-base font-semibold text-gray-900 dark:text-gray-100 hover:text-blue-700 dark:hover:text-blue-400 transition">{link.name}</a>
+      ))}
+      <!-- Dark mode toggle con icono dinámico y colores contrastados -->
+      <button id="themeToggle" class="ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+        <span id="themeIcon" class="block">
+          <!-- Por defecto sol -->
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" 
+            class="text-yellow-500 transition-colors duration-300" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5.5" />
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <!-- Hamburger for mobile -->
+    <div class="lg:hidden flex items-center">
+      <button id="openMenu" type="button" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Abrir menú">
+        <svg class="h-7 w-7 text-gray-900 dark:text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
   </nav>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[9999] bg-white dark:bg-gray-900 flex flex-col items-center px-6 py-8 space-y-8 transform -translate-x-full transition-transform duration-200 lg:hidden shadow-2xl">
+    <div class="flex items-center justify-between w-full mb-8">
+      <a href="/" class="flex items-center gap-2 font-bold text-xl text-gray-900 dark:text-gray-100">
+        <img class="h-8 w-8 bg-white rounded dark:bg-gray-900" src="/favicon.svg" alt="Logo Pablo" />
+        Pablo Quirilao
+      </a>
+      <button id="closeMenu" type="button" class="p-2 rounded-md focus:outline-none" aria-label="Cerrar menú">
+        <svg class="h-7 w-7 text-gray-900 dark:text-gray-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 w-full items-center">
+      {navLinks.map(link => (
+        <a href={link.href} class="text-xl font-medium text-gray-900 dark:text-gray-100 hover:text-blue-700 dark:hover:text-blue-400 transition">{link.name}</a>
+      ))}
+    </nav>
+    <div class="mt-8 flex flex-col items-center gap-2">
+      <!-- Dark mode toggle con icono dinámico y colores contrastados -->
+      <button id="themeToggleMobile" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 w-fit mx-auto">
+        <span id="themeIconMobile" class="block">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+            class="text-yellow-500 transition-colors duration-300" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5.5" />
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
 </header>
+
+<script is:inline>
+  // Menú mobile
+  const openBtn = document.getElementById('openMenu');
+  const closeBtn = document.getElementById('closeMenu');
+  const mobileMenu = document.getElementById('mobileMenu');
+  openBtn?.addEventListener('click', () => {
+    mobileMenu.classList.remove('-translate-x-full');
+  });
+  closeBtn?.addEventListener('click', () => {
+    mobileMenu.classList.add('-translate-x-full');
+  });
+  mobileMenu?.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.add('-translate-x-full');
+    }
+  });
+
+  // Modo oscuro: toggle, persistencia y actualización de icono
+  function setThemeIcon(isDark) {
+    const sun = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+      class="text-yellow-500 transition-colors duration-300" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5.5" />
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+    </svg>`;
+    const moon = `<svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+      class="text-white bg-gray-800 rounded-full transition-colors duration-300" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 1 0 9.79 9.79Z" fill="currentColor"/>
+    </svg>`;
+    document.getElementById('themeIcon').innerHTML = isDark ? moon : sun;
+    document.getElementById('themeIconMobile').innerHTML = isDark ? moon : sun;
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = !html.classList.contains('dark');
+    html.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    setThemeIcon(isDark);
+  }
+
+  document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+  document.getElementById('themeToggleMobile')?.addEventListener('click', toggleTheme);
+
+  // Preferencia guardada + icono inicial
+  window.addEventListener('DOMContentLoaded', () => {
+    const isDark = localStorage.getItem('theme') === 'dark';
+    if (isDark) document.documentElement.classList.add('dark');
+    setThemeIcon(isDark);
+  });
+</script>

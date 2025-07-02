@@ -93,3 +93,11 @@ html.dark {
 .dark .nav-links a {
   color: #fff;
 }
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+.dark body {
+  @apply bg-gray-950 text-gray-100;
+}
