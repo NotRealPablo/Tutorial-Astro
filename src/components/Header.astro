@@ -3,10 +3,16 @@ import Hamburger from './Hamburger.astro';
 import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
-<header>
-  <nav>
-    <Hamburger /> 
-    <Navigation />
-    <ThemeIcon />
+
+<header class="fixed top-0 left-0 w-full bg-white/90 shadow z-50 backdrop-blur-sm ">
+  <nav class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between ">
+    <div class="flex items-center gap-4">
+      <Hamburger />
+      <a href="/" class="text-xl font-bold tracking-tight text-gray-900 hover:text-blue-600 transition-colors">Pablo Quirilao</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <Navigation />
+      <ThemeIcon />
+    </div>
   </nav>
 </header>
