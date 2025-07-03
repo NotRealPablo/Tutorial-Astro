@@ -1,0 +1,32 @@
+---
+const hobbies = [
+  {
+    title: "Mountainbike (Trail)",
+    description: "Me apasiona recorrer senderos y montañas, disfrutando la naturaleza y el desafío físico del ciclismo.",
+    image: "/images/mtb.png", // Cambia esta ruta por tus imágenes reales
+  },
+  {
+    title: "Fotografía",
+    description: "Capturar momentos únicos y paisajes, buscando siempre la mejor luz y composición en cada toma.",
+    image: "/images/foto.png",
+  },
+  {
+    title: "Mecánica y optimización de hardware",
+    description: "Disfruto reparar notebooks y computadoras, optimizándolos y dándoles una nueva vida.",
+    image: "/images/hw.png",
+  },
+];
+---
+
+<div class="w-full flex flex-col items-center mt-12">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8">Hobbies e intereses</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+    {hobbies.map(({ title, description, image }) => (
+      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 flex flex-col items-center transition hover:scale-105 hover:shadow-2xl">
+        <img src={image} alt={title} class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white text-center">{title}</h3>
+        <p class="text-gray-700 dark:text-gray-300 text-center mt-2">{description}</p>
+      </div>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,38 @@
+---
+const imageUrl = "/images/profesional-cover.jpg"; // Cambia por la ruta real de tu imagen, deja este placeholder si aún no tienes foto
+const titulo = "Mi historia profesional";
+const subtitulo = "Trayectoria y evolución";
+const resumen = "Mi carrera comenzó en la Universidad Tecnológica Metropolitana, donde realicé consultorías de microinformática y optimización de hardware. Luego integré el equipo del departamento de física, colaborando en proyectos de modelado y predicción. Al finalizar ese ciclo, me incorporé a Technology Solutions, donde he potenciado mis habilidades en automatización, virtualización, performance, QA, DevOps, arquitectura de infraestructura y SRE.";
+
+const detalle = `
+Mi mayor pasión es la mejora continua: automatizar procesos, explorar nuevas herramientas y potenciar el trabajo en equipo. Actualmente colaboro con más de 8 células distintas en una empresa líder, donde he documentado y estandarizado procesos críticos que han servido como base para capacitaciones y mejoras continuas. Mi objetivo es seguir creciendo en el área DevOps y dominar automatizaciones con inteligencia artificial.
+`;
+---
+
+<div class="flex flex-col items-center bg-transparent">
+  <!-- Imagen portada -->
+  <div class="w-full max-w-3xl">
+    <img 
+      src={imageUrl}
+      alt="Portada historia profesional"
+      class="rounded-xl object-cover w-full h-60 sm:h-72 md:h-80 shadow-lg"
+      loading="lazy"
+    />
+  </div>
+  <!-- Card superpuesta -->
+  <div class="relative w-full max-w-2xl -mt-16 z-10">
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-xl px-8 py-6 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{titulo}</h2>
+      <span class="text-blue-600 dark:text-blue-400 text-base font-semibold">{subtitulo}</span>
+      <p class="mt-4 text-gray-700 dark:text-gray-300">{resumen}</p>
+    </div>
+  </div>
+  <!-- Texto detalle abajo -->
+  <div class="w-full max-w-2xl mt-8">
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md px-8 py-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+        {detalle}
+      </p>
+    </div>
+  </div>
+</div>

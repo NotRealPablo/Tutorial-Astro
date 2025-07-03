@@ -1,0 +1,75 @@
+---
+const skills = [
+  {
+    name: "Python",
+    short: "PY",
+    icon: "/images/skills/python.svg", // Puedes usar SVG/PNG locales, o de https://simpleicons.org/
+    color: "bg-yellow-400",
+    percent: 90,
+  },
+  {
+    name: "Jenkins",
+    short: "JENKINS",
+    icon: "/images/skills/Jenkins.svg",
+    color: "bg-green-600",
+    percent: 80,
+  },
+  {
+    name: "JavaScript",
+    short: "JS",
+    icon: "/images/skills/JavaScript.png",
+    color: "bg-yellow-400",
+    percent: 85,
+  },
+  {
+    name: "Astro",
+    short: "ASTRO",
+    icon: "/images/skills/astro.svg",
+    color: "bg-indigo-500",
+    percent: 75,
+  },
+  {
+    name: "HTML/CSS",
+    short: "HTML",
+    icon: "/images/skills/htmlcss.svg",
+    color: "bg-orange-500",
+    percent: 90,
+  },
+  {
+    name: "TailwindCSS",
+    short: "TAILWIND",
+    icon: "/images/skills/tailwind-icon.svg",
+    color: "bg-cyan-400",
+    percent: 75,
+  },
+  {
+    name: "Git",
+    short: "GIT",
+    icon: "/images/skills/git-icon.svg",
+    color: "bg-orange-400",
+    percent: 80,
+  },
+];
+---
+
+<div class="w-full flex flex-col items-center mt-12">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8">Skills & Herramientas</h2>
+  <div class="w-full max-w-3xl flex flex-col gap-5">
+    {skills.map(({ name, short, icon, color, percent }) => (
+      <div class="flex items-center gap-4 w-full">
+        <div class="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800">
+          <img src={icon} alt={name} class="w-10 h-10" />
+        </div>
+        <div class="flex-grow">
+          <div class="flex justify-between">
+            <span class="font-bold text-gray-900 dark:text-gray-100">{name}</span>
+            <span class="font-semibold text-gray-500 dark:text-gray-300">{percent}%</span>
+          </div>
+          <div class="w-full h-4 bg-gray-200 dark:bg-gray-700 rounded-full mt-2">
+            <div class={`h-4 rounded-full ${color} transition-all`} style={`width: ${percent}%`}></div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
