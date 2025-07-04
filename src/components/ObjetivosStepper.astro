@@ -1,0 +1,71 @@
+---
+const pasos = [
+  {
+    label: "Dominar automatización con IA",
+    content: "Mi meta principal para este semestre es dominar la integración de inteligencia artificial con procesos de automatización de pruebas y data pipelines.",
+  },
+  {
+    label: "Expandir skills DevOps",
+    content: "Quiero fortalecer mis habilidades en pipelines, CI/CD, integración con Jenkins y mejores prácticas para infraestructura como código.",
+  },
+  {
+    label: "Crear y documentar soluciones de performance",
+    content: "Estoy enfocado en desarrollar nuevas herramientas que ayuden a equipos a medir y optimizar performance, incluyendo scripts de reporting y dashboards.",
+  },
+];
+---
+
+<div class="w-full max-w-2xl mx-auto my-16 bg-white dark:bg-gray-800 rounded-xl shadow-lg px-8 py-6">
+  <h2 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Objetivos Actuales</h2>
+  <ul class="flex gap-4 mb-8 justify-center" id="stepper-nav">
+    {pasos.map((paso, idx) => (
+      <li>
+        <button
+          type="button"
+          class="w-9 h-9 flex items-center justify-center rounded-full border-2 border-gray-300 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-200 font-semibold transition duration-150 stepper-btn"
+          data-step={idx}
+        >
+          {idx + 1}
+        </button>
+      </li>
+    ))}
+  </ul>
+  {pasos.map((paso, idx) => (
+    <div class="stepper-content" style={idx === 0 ? "" : "display:none;"}>
+      <h3 class="text-xl font-semibold text-center mb-3 text-blue-600 dark:text-blue-400">{paso.label}</h3>
+      <p class="text-center text-gray-700 dark:text-gray-300">{paso.content}</p>
+    </div>
+  ))}
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.stepper-btn');
+    const steps = document.querySelectorAll('.stepper-content');
+    let current = 0;
+
+    function activate(idx) {
+      btns.forEach((btn, i) => {
+        btn.classList.toggle('border-blue-500', i === idx);
+        btn.classList.toggle('bg-blue-500', i === idx);
+        btn.classList.toggle('text-white', i === idx);
+        btn.classList.toggle('border-gray-300', i !== idx);
+        btn.classList.toggle('bg-gray-100', i !== idx);
+        btn.classList.toggle('dark:bg-gray-700', i !== idx);
+        btn.classList.toggle('text-gray-600', i !== idx);
+        btn.classList.toggle('dark:text-gray-200', i !== idx);
+      });
+      steps.forEach((step, i) => {
+        step.style.display = i === idx ? "" : "none";
+      });
+      current = idx;
+    }
+
+    btns.forEach((btn, idx) => {
+      btn.addEventListener('click', () => activate(idx));
+    });
+
+    // Inicializar primer paso activo
+    activate(0);
+  });
+</script>

@@ -1,0 +1,41 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+  {
+    title: "Proyecto Front Física MP2.5 y MP10",
+    description: "Plataforma para visualizar y predecir el comportamiento del material particulado en Santiago.",
+    date: "Ene 2022",
+    author: "Pablo Quirilao",
+    authorImg: "/public/images/avatar-pasion.png",  // Pon tu imagen
+    image: "/images/projects/fisica.png",
+  },
+  {
+    title: "Estandarización Pruebas Performance",
+    description: "Documentación, mapeo y automatización de pruebas de carga para IMED y otras células.",
+    date: "Dic 2023",
+    author: "Pablo Quirilao",
+    authorImg: "/public/images/avatar-pasion.png",
+    image: "/images/projects/performance.png",
+  },
+  {
+    title: "Automatización Reportes Full HD",
+    description: "Conversión automática de reportes HTML a PNG para mejorar la integridad y presentación.",
+    date: "Oct 2023",
+    author: "Pablo Quirilao",
+    authorImg: "/public/images/avatar-pasion.png",
+    image: "/images/projects/reportes.png",
+  },
+  // Agrega más proyectos...
+];
+---
+
+<section class="max-w-7xl mx-auto py-5 px-4">
+  <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">Proyectos Destacados</h2>
+  <p class="mb-10 text-xl text-gray-600 dark:text-gray-300">Algunos de los proyectos que más me representan profesionalmente.</p>
+  <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {projects.map((project) => (
+      <ProjectCard {...project} />
+    ))}
+  </div>
+</section>

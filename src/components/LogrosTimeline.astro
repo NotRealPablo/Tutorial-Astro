@@ -1,0 +1,51 @@
+---
+const logros = [
+  {
+    year: "2016",
+    title: "Inicio en consultorías microinformáticas",
+    desc: "Comencé asesorando en mantenimiento y optimización de hardware mientras estudiaba en la UTEM. Primeros pasos en soporte.",
+    align: "start"
+  },
+  {
+    year: "2022",
+    title: "Proyecto universitario con Física",
+    desc: "Desarrollé un front-end para representar los modelos de predicciónde calidad del aire en base a material particulado MP2.5 y MP10, trabajando con el equipo del departamento de Física.",
+    align: "end"
+  },
+  {
+    year: "2023",
+    title: "Ingreso a Technology Solutions",
+    desc: "Me sumé como Ingeniero de Performance, impulsando pruebas de carga, documentación, automatización y capacitación para equipos internos y clientes.",
+    align: "start"
+  },
+  {
+    year: "2023",
+    title: "Implementación de pruebas de carga en IMED",
+    desc: "Lideré la estandarización y documentación de performance en una empresa con +8 equipos, logrando mapear y crear el control de versiones para procesos críticos.",
+    align: "end"
+  },
+  {
+    year: "2024",
+    title: "Innovación en reportes y automatizaciones",
+    desc: "Automatización de generación de reportes, conversión de HTML a PNG y nuevos scripts para aumentar la eficiencia y calidad de entrega.",
+    align: "start"
+  },
+];
+---
+
+<ul class="relative w-full max-w-2xl mx-auto my-16 border-l-2 border-blue-300 dark:border-blue-800">
+  {logros.map((item, idx) => (
+    <li class="mb-12 ml-6 relative">
+      <span class="absolute -left-4 flex items-center justify-center w-8 h-8 bg-white dark:bg-gray-900 rounded-full border-2 border-blue-400">
+        <svg viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-blue-500 dark:text-blue-400">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+        </svg>
+      </span>
+      <div class={`p-6 rounded-xl shadow-lg bg-white dark:bg-gray-800 ${item.align === "end" ? "md:ml-24" : "md:mr-24"}`}>
+        <time class="block font-mono italic text-sm text-blue-600 dark:text-blue-400 mb-1">{item.year}</time>
+        <div class="text-lg font-black text-gray-900 dark:text-white">{item.title}</div>
+        <div class="text-gray-700 dark:text-gray-300 mt-2">{item.desc}</div>
+      </div>
+    </li>
+  ))}
+</ul>
